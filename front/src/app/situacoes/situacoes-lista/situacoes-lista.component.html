@@ -1,0 +1,20 @@
+<a [routerLink]="['/situacoes/novo']" class="btn btn-success btn-md">
+  Nova Situação
+</a>
+
+<h3>{{title}}</h3>
+
+<table class="table table-striped">
+  <tr>
+    <th>Descrição</th>
+    <th>Excluir</th>
+  </tr>
+  <tr *ngFor="let situacao of situacoes">
+    <td><a [routerLink]="['/situacoes', situacao._id]"> {{situacao.descricao}}</a></td>
+    <td>
+      <button class="btn btn-danger" (click)="excluir(situacao._id)">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </td>
+  </tr>
+</table>

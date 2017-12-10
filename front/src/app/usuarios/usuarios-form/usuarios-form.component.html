@@ -1,0 +1,47 @@
+<h2>{{title}}</h2>
+
+<form #usuarioForm="ngForm" (submit) = "enviar()">
+
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome" class="form-control" [(ngModel)]="model.nome"/>
+  </div>
+
+  <div class="form-group">
+    <label for="login">Login</label>
+    <input type="text" id="login" name="login" class="form-control" [(ngModel)]="model.login"/>
+  </div>
+
+  <div class="form-group">
+    <label for="senha">Senha</label>
+    <input type="password" id="senha" name="senha" class="form-control" [(ngModel)]="model.senha"/>
+  </div>
+
+  <div class="form-group">
+    <label for="funcao">Função</label>
+    <input type="text" id="funcao" name="funcao" class="form-control" [(ngModel)]="model.funcao"/>
+  </div>
+
+  <div class="form-group">
+    <label for="tipo">Tipo de Usuário</label>
+    <select id = "tipo" class="form-control" name="tipo" [(ngModel)]="model.tipo_user">
+      <option value="">(Selecione)</option>
+      <option value="Padrão">Padrão</option>
+      <option value="Administrador">Administrador</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="status">Status</label>
+    <select id = "status" class="form-control" name="status" [(ngModel)]="model.status">
+      <option value="">(Selecione)</option>
+      <option value="Ativo">Ativo</option>
+      <option value="Inativo">Inativo</option>
+    </select>
+  </div>
+
+  <div class="text-center">
+    <input class="btn btn-primary" type="submit" value="Enviar"/>
+  </div>
+
+</form>

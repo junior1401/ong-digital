@@ -1,0 +1,32 @@
+<a [routerLink]="['/criancas/novo']" class="btn btn-success btn-md">
+  Nova Crianca
+</a>
+
+<h3>{{title}}</h3>
+
+<table class="table table-striped">
+  <tr>
+    <th>Nome</th>
+    <th>RG</th>
+    <th>CPF</th>
+    <th>Cor</th>
+    <th>Sexo</th>
+    <th>Dt. Nascimento</th>
+    <th>Situacao</th>
+    <th>Excluir</th>
+  </tr>
+  <tr *ngFor="let crianca of criancas">
+    <td><a [routerLink]="['/criancas', crianca._id]"> {{crianca.nome}}</a></td>
+    <td>{{crianca.rg}}</td>
+    <td>{{crianca.cpf}}</td>
+    <td>{{crianca.cor}}</td>
+    <td>{{crianca.sexo}}</td>
+    <td>{{formatarData(crianca.dt_nascimento)}}</td>
+    <td>{{crianca.situacao.descricao}}</td>
+    <td>
+      <button class="btn btn-danger" (click)="excluir(crianca._id)">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,30 @@
+<a [routerLink]="['/usuarios/novo']" class="btn btn-success btn-md">
+  Novo Usuário
+</a>
+
+<h3>{{title}}</h3>
+
+<table class="table table-striped">
+  <tr>
+    <th>Nome</th>
+    <th>Login</th>
+    <th>Função</th>
+    <th>Tipo de Usuário</th>
+    <th>Status</th>
+    <th>Data da Última Alteração</th>
+    <th>Excluir</th>
+  </tr>
+  <tr *ngFor="let usuario of usuarios">
+    <td><a [routerLink]="['/usuarios', usuario._id]"> {{usuario.nome}}</a></td>
+    <td>{{usuario.login}}</td>
+    <td>{{usuario.funcao}}</td>
+    <td>{{usuario.tipo_user}}</td>
+    <td>{{usuario.status}}</td>
+    <td>{{formatarData(usuario.dt_ult_alteracao)}}</td>
+    <td>
+      <button class="btn btn-danger" (click)="excluir(usuario._id)">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </td>
+  </tr>
+</table>

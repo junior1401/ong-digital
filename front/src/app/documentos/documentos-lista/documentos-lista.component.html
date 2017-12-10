@@ -1,0 +1,29 @@
+<a [routerLink]="['/documentos/novo']" class="btn btn-success btn-md" align="center">
+  Novo Documento
+</a>
+
+
+<h3>{{title}}</h3>
+
+<table class="table table-striped">
+  <tr>
+    <th>Nome</th>
+    <th>Tags</th>
+    <th>Local do Arquivo</th>
+    <th>Data Importação</th>
+    <th>Criança</th>
+    <th>Excluir</th>
+  </tr>
+  <tr *ngFor="let documento of documentos">
+    <td><a [routerLink]="['/documentos', documento._id]"> {{documento.nome}}</a></td>
+    <td>{{documento.tags}}</td>
+    <td>{{documento.local_arquivo}}</td>
+    <td>{{formatarData(documento.dt_importacao)}}</td>
+    <td>{{documento.crianca.nome}}</td>
+    <td>
+      <button class="btn btn-danger" (click)="excluir(documento._id)">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </td>
+  </tr>
+</table>

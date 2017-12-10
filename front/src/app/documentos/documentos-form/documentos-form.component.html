@@ -1,0 +1,40 @@
+<h2>{{title}}</h2>
+
+<form #documentoForm="ngForm" (submit) = "enviar()">
+
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome" class="form-control" [(ngModel)]="model.nome"/>
+  </div>
+
+  <div class="form-group">
+    <label for="tags">Tags</label>
+    <input type="text" id="tags" name="tags" class="form-control" [(ngModel)]="model.tags"/>
+  </div>
+
+  <div class="form-group">
+    <label for="local_arquivo">Local do Arquivo</label>
+    <input type="text" id="local_arquivo" name="local_arquivo" class="form-control" [(ngModel)]="model.local_arquivo"/>
+  </div>
+
+  <div class="form-group">
+    <label for="crianca">Criança</label>
+    <select id = "crianca" class="form-control" name="crianca" [(ngModel)]="model.crianca">
+      <option value="">(Selecione)</option>
+      <option *ngFor="let crianca of criancas | async" [ngValue]="crianca._id">{{crianca.nome}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="usuario">Usuário</label>
+    <select id = "usuario" class="form-control" name="usuario" [(ngModel)]="model.usuario">
+      <option value="">(Selecione)</option>
+      <option *ngFor="let usuario of usuarios | async" [ngValue]="usuario._id">{{usuario.nome}}</option>
+    </select>
+  </div>
+
+  <div class="text-center">
+    <input class="btn btn-primary" type="submit" value="Enviar"/>
+  </div>
+
+</form>
